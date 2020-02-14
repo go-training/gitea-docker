@@ -34,14 +34,40 @@ services:
     environment:
       - USER_UID=${USER_UID}
       - USER_GID=${USER_GID}
+      - SSH_PORT=2000
+      - DISABLE_SSH=true
+      - DB_TYPE=mysql
+      - DB_HOST=db:3306
+      - DB_NAME=gitea
+      - DB_USER=gitea
+      - DB_PASSWD=gitea
     restart: always
     networks:
       - gitea
     volumes:
-      - ./gitea:/data
+      - gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "3000:3000"
-      - "2221:22"
+      - "4000:3000"
+      - "2000:22"
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=gitea
+      - MYSQL_USER=gitea
+      - MYSQL_PASSWORD=gitea
+      - MYSQL_DATABASE=gitea
+    networks:
+      - gitea
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  gitea:
+    driver: local
+  mysql:
+    driver: local
 ```
