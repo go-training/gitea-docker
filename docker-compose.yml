@@ -1,27 +1,3 @@
-# gitea-docker
-
-Installation Gitea with Docker
-
-## Copy your `.env`
-
-copy your .env file
-
-```sh
-cp -r .env.example .env
-```
-
-How to find your UID and GID:
-
-```sh
-# get UID
-id -u
-# get GID
-id -g
-```
-
-## Start the Gitea
-
-```yaml
 version: "2"
 
 networks:
@@ -44,4 +20,3 @@ services:
     ports:
       - "3000:3000"
       - "2221:22"
-```
