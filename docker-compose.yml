@@ -12,6 +12,11 @@ services:
       - USER_GID=${USER_GID}
       - SSH_PORT=2000
       - DISABLE_SSH=true
+      - DB_TYPE=mysql
+      - DB_HOST=db:3306
+      - DB_NAME=gitea
+      - DB_USER=gitea
+      - DB_PASSWD=gitea
     restart: always
     networks:
       - gitea
@@ -22,3 +27,16 @@ services:
     ports:
       - "4000:3000"
       - "2000:22"
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=gitea
+      - MYSQL_USER=gitea
+      - MYSQL_PASSWORD=gitea
+      - MYSQL_DATABASE=gitea
+    networks:
+      - gitea
+    volumes:
+      - ./mysql:/var/lib/mysql
