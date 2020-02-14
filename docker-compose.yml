@@ -21,7 +21,7 @@ services:
     networks:
       - gitea
     volumes:
-      - ./gitea:/data
+      - gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
@@ -39,4 +39,10 @@ services:
     networks:
       - gitea
     volumes:
-      - ./mysql:/var/lib/mysql
+      - mysql:/var/lib/mysql
+
+volumes:
+  gitea:
+    driver: local
+  mysql:
+    driver: local
