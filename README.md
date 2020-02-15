@@ -21,6 +21,8 @@ id -g
 
 ## Start the Gitea
 
+The following is Gitea and MySQL services. Just execute `docker-compose up -d` to start the Gitea service.
+
 ```yaml
 version: "2"
 
