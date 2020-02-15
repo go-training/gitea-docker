@@ -71,3 +71,9 @@ volumes:
   mysql:
     driver: local
 ```
+
+## open the install page
+
+See the following screccnshots:
+
+!()[./screenshot/install_screenshot.png]
