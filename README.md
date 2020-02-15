@@ -76,4 +76,4 @@ volumes:
 
 See the following screccnshots:
 
-!()[./screenshot/install_screenshot.png]
+![install guide](./screenshot/install_screenshot.png)
